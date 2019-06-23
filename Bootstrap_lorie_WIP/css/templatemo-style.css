@@ -44,7 +44,17 @@ img
 /* img */
 
 /* overlay */
+/* lg:   decreased the overaly padding for the top so there is more space for the map to display. */
 .overlay 
+    {
+       width: 100%;
+       height: 100%;
+       background: rgba(0, 0, 0, 0.4);
+       padding-top: 30px;
+       padding-bottom: 30px;
+    }  
+
+.overlayBottom 
     {
        width: 100%;
        height: 100%;
@@ -55,6 +65,12 @@ img
 /* over lay */
 
 /* start page container */
+/* lg:   added height and min-height to allow the div for maps to show the map.  Else, it's 1 px hight
+fyi - Some documentation indiacates !important will cause other issues. */
+/*
+    height: auto;
+    min-height:0px !important;*/
+
 @media (min-width: 768px) {
   .container {
     width: 700px;
@@ -175,28 +191,28 @@ img
 .navbar-default .navbar-toggle:focus { background-color: transparent }
 /* end navigation */
 
-/* start home */       
-#home
+/* start maps */       
+#maps
     {
-    background: url('../images/home-bg.jpg') no-repeat;
+    background: url('../images/bubble-bg.jpg') no-repeat;
     background-size: cover;
     color: #fff;
     margin-top: 70px;
     text-align: center;
     width: 100%;
-    }
-#home p
+    }L is not defined 
+#maps p
     {
         font-weight: 400;
         font-style: italic;
         line-height: 2em;
     }
-#home img
+#maps img
     {
         display: inline-block;
         margin-top: 30px;
     }
-/* end home */
+/* end maps */
 
 /* start divider */
 #divider
@@ -273,50 +289,50 @@ img
     }
 /* end feature1 */
 
-/* start pricing */
-#pricing
+/* start data  */
+#data
     {
         background: #f8f8f8;
         text-align: center;
         padding-top: 80px;
         padding-bottom: 80px;
     }
-#pricing h2
+#data h2
     {
         padding-bottom: 60px;
     }
-#pricing .pricing
+#data .data
     {
         background: #fff;
     }
-#pricing .active
+#data .active
     {
         position: relative;
         bottom: 20px;
     }
-#pricing .pricing .pricing-title
+#data .data .data-title
     {
         background: #28a7e9;
         color: #fff;
         font-weight: bold;
         padding: 30px;
     }
-#pricing .pricing .pricing-title p
+#data .data .data-title p
     {
         font-size: 20px;
     }
-#pricing .pricing ul
+#data .data ul
     {
         padding: 0;
         margin: 0;
     }
-#pricing .pricing ul li
+#data .data ul li
     {
         display: block;
         list-style: none;
         padding: 16px;
     }
-#pricing .pricing .btn
+#data .data .btn
     {
         background: transparent;
         border: 1px solid #28a7e9;
@@ -329,47 +345,47 @@ img
         margin-bottom: 30px;
         transition: all 0.3s ease;
     }
-#pricing .pricing .btn:hover {
+#data .data .btn:hover {
     background: #28a7e9;
     color: #fff;
 }
-/* end pricing */
+/* end data */
 
-/* start download */
-#download
+/* start overview */
+#overview
     {
         padding-top: 80px;
         padding-bottom: 80px;
     }
-#download h2
+#overview h2
     {
         padding-bottom: 20px;
     }
-#download .btn
+#overview .btn
     {
         border-radius: 0px;
         font-weight: bold;
         margin-top: 20px;
         padding: 10px 40px 10px 40px;
     }
-/* end download */
+/* end overview */
 
-/* start contact */
-#contact
+/* start about */
+#about
     {
-        background: url('../images/contact-bg.jpg') no-repeat;
+        background: url('../images/bubble-bg.jpg') no-repeat;
         background-size: cover;
         color: #fff;
     }
-#contact h2
+#about h2
     {
         padding-bottom: 10px;
     }
-#contact address
+#about address
     {
         padding-top: 20px;
     }
-#contact address .fa
+#about address .fa
     {
         background: #28a7e9;
         border-radius: 50%;
@@ -380,32 +396,32 @@ img
         margin-top: 6px;
         margin-right: 10px;
     }
-#contact .contact-form
+#about .about-form
     {
         padding-top: 40px;
     }
-#contact .form-control
+#about .form-control
     {
         border: none;
         border-radius: 0px;
         box-shadow: none;
         margin-bottom: 20px;
     }
-#contact input
+#about input
     {
         height: 50px;
     }
-#contact input[type="submit"]
+#about input[type="submit"]
     {
         background: #28a7e9;
         color: #fff;
         font-weight: bold;
         transition: all 0.3s ease;
     }
-#contact input[type="submit"]:hover {
+#about input[type="submit"]:hover {
     background: #107DB6;
 }
-/* end contact */
+/* end about */
 
 /* start footer */
 footer
@@ -421,13 +437,13 @@ footer
     .templatemo-box {
         margin-bottom: 30px;
     }
-    #pricing .active {
+    #data .active {
         bottom: 0;
     }
-    .pricing {
+    .data {
         margin-bottom: 20px;
     }
-    #feature img, #download img {
+    #feature img, #overview img {
         margin-top: 30px;
     }
     #feature1 img {
@@ -439,7 +455,7 @@ footer
         height: auto;
         line-height: 2em;
     }
-    #feature, #pricing, #download {
+    #feature, #data, #overview {
         padding-top: 20px;
         padding-bottom: 40px;
     }
@@ -449,7 +465,7 @@ footer
 }
 /* start media 360 */
 @media screen and ( max-width: 360px ){
-    .pricing
+    .data
         {
             padding-bottom: 40px;
         }
