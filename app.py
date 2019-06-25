@@ -1,6 +1,5 @@
-# importing the database that we'll need to create our visualization
-
 import os
+
 import pandas as pd
 import numpy as np
 
@@ -10,61 +9,57 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 
 from flask import Flask, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
-
 app = Flask(__name__)
-
 
 
 #################################################
 # Database Setup
 #################################################
+dbfile = os.path.join('data/NYC_Restarants.db')
+engine = create_engine(f"sqlite:///{dbfile}")
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data/Group_Project_NYC.sqlite"
-db = SQLAlchemy(app)
-
-
-# Designing the new database into a new database model that will will hold all our values
+# reflect an existing database into a new model
 Base = automap_base()
-
 # reflect the tables
+Base.prepare(engine, reflect=True)
 
-Base.prepare(db.engine, reflect=True)
+# Save references to each table
+NYC_Restaurants = Base.classes.NYC_Restaurants
 
-# once the table have been reflected, we need to save into a table
-Food_NYC = Base.classes.NYC_Restaurants
-Violations_NYC = Base.classes.Nyc_Restaurants_violations
+
+# Create our session (link) from Python to the DB
+session = Session(engine)
 
 
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html")
+    return render_template('index.html')
 
-@app.route("/names")
 
+@app.route('/names')
 def names():
-    all_restaurants= db.seesion.query(CAMIS).statement
-    area_violations=pd.read_sql_query(all_restaurants,db.session.bind)
+    """Return a list of sample names."""
 
-    #let's return the list of all DBA
+    # Use Pandas to perform the sql query
+    stmt = session.query(NYC_Restaurants).statement
+    df = pd.read_sql_query(stmt, session.bind)
+    # df.set_index('otu_id', inplace=True)
 
-    return jsonify(list(area_violations)[3:])
+    # Return a list of the column names (sample names)
+    return jsonify(list(df.columns))
+@app.route('/camis')
+def otu():
+    """Return a list of OTU descriptions."""
+    results = session.query(NYC_Restaurants.CAMIS).all()
 
-@app.route("/NYC_Restaurants/<CAMIS>")
-def Food_NYC(CAMIS):
+    # Use numpy ravel to extract list of tuples into a list of OTU descriptions
+    CAMIS_list = list(np.ravel(results))
+    return jsonify(CAMIS_list)
+
+
   
-    sel = [
-        Food_NYC.CAMIS,
-        Food_NYC.DBA,
-        Food_NYC.BORO,
-        Food_NYC.INSPECTIONDATE,
-        Food_NYC.GRADE,
-        Food_NYC.SCORE,
-        
-    ]
 
-Info_Restaurants = db.session.query(*sel).filter(Food_NYC.CAMIS == CAMIS).all()
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
