@@ -16,7 +16,8 @@
 		<!-- animate css -->
 		<link rel="stylesheet" href="css/animate.min.css">
 		<!-- bootstrap css -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- font-awesome -->
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<!-- google font -->
@@ -32,17 +33,20 @@
 			<div class="sk-spinner sk-spinner-rotating-plane"></div>
     	 </div>
 		<!-- end preloader -->
-		<!-- start navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
-			<div class="container">
+		<!-- Start of navbar -->
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid navbar-custom">
+	  
+			  <!-- Per Jing, grouping for better mobile display -->
+			  <div class="row">
 				<div class="navbar-header">
-					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon icon-bar"></span>
-						<span class="icon icon-bar"></span>
-						<span class="icon icon-bar"></span>
-					</button>
-					<!-- Link should take user to the top of the page, default map is displayed-->
-					<a href="index.html#maps" class="navbar-brand">"Data on Rye"</a>
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a href="index.html" class="navbar-brand">"Data on Rye"</a>
 				</div>
 
 				<!--   LG Note:    Category changes to the original
@@ -53,23 +57,24 @@
 
 				-->
 
-				<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right text-uppercase">
-						
-						<li><a href="index.html#maps" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a></li>
-						<!-- <li><a href="#maps">Maps</a></li> -->
-						<ul class="dropdown-menu">
-								<li><a href="index.html/#maps">Map1-Markers</a></li>
-								 <li><a href="visualizations/humidity.html">Map2-Heat</a></li>
-								 <li><a href="visualizations/cloudiness.html">Graph</a></li>
-								 <li><a href="visualizations/wind.html">Wind Speed</a></li>
-							   </ul>
+						<li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="index.html#maps">Map1-Markers</a></li>
+								 <li><a href="index.html#maps">Map2-Heat</a></li>
+								 <li><a href="index.html#maps">Graph</a></li>
+							</ul>
+						</li>
 						<!-- <li><a href="#feature">Features</a></li> -->
 						<!--   Removed features from the menu, but mainted the section within the page-->
 						<li><a href="index.html#overview">Overview</a></li>
 						<li><a href="index.html#about">About</a></li>
 						<!--  Moving data to the end as I'm not sure how long it will be.-->
-						<li><a href="#data">Data</a></li>
+						<!--??  this link should open a new page.  Only works when I choose 'new tab'.   Will get this working.-->
+						<!-- <li><a href="data.html" target="_self">Data</a></li> -->
+						<li><a href="data.html">Data</a></li>
 					</ul>
 				</div>
 			</div>
@@ -727,16 +732,35 @@
 		</footer>
 		<!-- end footer -->
         
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/wow.min.js"></script>
+		<!-- jQuery CDN -->
+		<!-- This URL for the jquery script is from the HTML homework.  Using this file and NOT the jquery.js which came with the bootstrap template
+		WHY??    2.1.4 was used with HTML Homework and v1.10.2 was included with bootstrap template -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+		<!--This script came with the bootstap template and is v1.10.2-->
+		<!-- <script src="js/jquery.js"></script>  -->
 		<script src="js/jquery.singlePageNav.min.js"></script>
+
+
+		<!--   bootstrap should be loaded AFTER jquery-->
+		<!--https://stackoverflow.com/questions/9529574/bootstrap-dropdown-menu-not-working-->
+
+		
+		<!-- Bootstrap CDN -->
+		<!-- <script src="js/bootstrap.min.js"></script> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<script src="js/wow.min.js"></script>
+		
 		<script src="js/custom.js"></script>
+
 
 
 		<!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) lg:bikeMap -->
 		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-
+		
+		<script type="text/javascript" src="js/logic.js"></script>
 		
 	  
 	</body>

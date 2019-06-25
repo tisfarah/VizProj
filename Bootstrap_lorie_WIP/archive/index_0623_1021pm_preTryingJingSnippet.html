@@ -48,22 +48,19 @@
 			<div class="sk-spinner sk-spinner-rotating-plane"></div>
     	 </div>
 		<!-- end preloader -->
-
-		<!-- Start of navbar -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-				<div class="container-fluid navbar-custom">
-		  
-				  <!-- Per Jing, grouping for better mobile display -->
-				  <div class="row">
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		<!-- start navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
 						<span class="sr-only">Toggle Navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-					  <a href="index.html" class="navbar-brand">"Data on Rye"</a>
-					</div>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<!-- Link should take user to the top of the page, default map is displayed-->
+					<a href="#maps" class="navbar-brand">"Data on Rye"</a>
+				</div>
 
 				<!--   LG Note:    Category changes to the original
 					home ->  Maps
@@ -79,8 +76,8 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#maps">Map1-Markers</a></li>
-								 <li><a href="#maps">Map2-Heat</a></li>
-								 <li><a href="#maps">Graph</a></li>
+								 <li><a href="#about">Map2-Heat</a></li>
+								 <li><a href="#overview">Graph</a></li>
 							</ul>
 						</li>
 						<!-- <li><a href="#feature">Features</a></li> -->
@@ -90,7 +87,7 @@
 						<!--  Moving data to the end as I'm not sure how long it will be.-->
 						<!--??  this link should open a new page.  Only works when I choose 'new tab'.   Will get this working.-->
 						<!-- <li><a href="data.html" target="_self">Data</a></li> -->
-						<li><a href="data.html">Data</a></li>
+						<li><a href="other/data.html">Data</a></li>
 					</ul>
 				</div>
 			</div>
