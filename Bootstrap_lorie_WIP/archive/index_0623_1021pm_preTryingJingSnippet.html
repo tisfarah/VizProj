@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<!-- 
+    	Boxer Template
+    	http://www.templatemo.com/tm-446-boxer
+    	-->
+		<meta charset="utf-8">
+		<title>NY Restaurant Health Ratings</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<!-- Google Font lg:bikeMap-->
+		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+
+		<!-- Leaflet CSS lg:bikeMap-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+		integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+		crossorigin=""/>
+
+		<!-- Icons lg:bikeMap-->
+		<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+
+		<!-- Our CSS lg:bikeMap-->
+		<link rel="stylesheet" type="text/css" href="css/styleBike.css">
+
+
+		<!-- animate css -->
+		<link rel="stylesheet" href="css/animate.min.css">
+		<!-- bootstrap css -->
+		<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- font-awesome -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- google font -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/templatemo-style.css">
+
+	</head>
+	<body>
+		<!-- start preloader -->
+		<div class="preloader">
+			<div class="sk-spinner sk-spinner-rotating-plane"></div>
+    	 </div>
+		<!-- end preloader -->
+		<!-- start navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<!-- Link should take user to the top of the page, default map is displayed-->
+					<a href="#maps" class="navbar-brand">"Data on Rye"</a>
+				</div>
+
+				<!--   LG Note:    Category changes to the original
+					home ->  Maps
+					pricing ->   Data
+					download ->  Overview
+					contact ->   About
+
+				-->
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right text-uppercase">
+						<li class="dropdown" >
+							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#maps">Map1-Markers</a></li>
+								 <li><a href="#about">Map2-Heat</a></li>
+								 <li><a href="#overview">Graph</a></li>
+							</ul>
+						</li>
+						<!-- <li><a href="#feature">Features</a></li> -->
+						<!--   Removed features from the menu, but mainted the section within the page-->
+						<li><a href="#overview">Overview</a></li>
+						<li><a href="#about">About</a></li>
+						<!--  Moving data to the end as I'm not sure how long it will be.-->
+						<!--??  this link should open a new page.  Only works when I choose 'new tab'.   Will get this working.-->
+						<!-- <li><a href="data.html" target="_self">Data</a></li> -->
+						<li><a href="other/data.html">Data</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation -->
+
+		<!-- start maps -->
+		<section id="maps">
+				<div class="overlay">
+						<div class="container"></div> <!--may need to add container-fluid for responsive to display the map height-->
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-10 wow fadeIn" id="map-id" style="height:600px;" data-wow-delay="0.3s">
+								</div>
+								<div class="col-md-1"></div>
+							</div>
+						</div>
+		</section>
+		<!-- end maps -->
+
+		
+
+		<!-- start overview -->
+		<section id="overview">
+			<div class="container">
+				<div class="row">
+					<!-- row1-->
+					<div class="col-md-12 wow fadeInLeft" data-wow-delay="0.6s">
+								<h2 class="text-uppercase">Project Overview</h2>
+							</div>
+					<!-- row2-->
+					<div class="col-md-1"></div>
+					<div class="col-md-10 wow fadeInRight" data-wow-delay="0.6s">
+							<img src="images/processExample.png" class="img-responsive" alt="processOverview">
+						</div>
+					<div class="col-md-1"></div>
+					</div>
+					<!-- row3-->
+					<div class="col-md-8 wow fadeInLeft" data-wow-delay="0.6s">
+						<p></p>
+						<h3>Our Process</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+						<p></p>
+					</div>
+					<div class="col-md-1"> </div>
+					<div class="col-md-3 wow fadeInLeft" data-wow-delay="0.6s"></div>
+						<h3>Technologies Used</h3>
+						<UL>
+							<li>What should we add here?</li>
+							<li>Sqlite</li>
+							<li>Python</li>
+							<li>Flask</li>
+							<li>Java-Script</li>
+
+						</UL>
+					</div>	
+			</div>
+		</section>
+		<!-- end overview -->
+
+		<!-- start feature -->
+		<!-- This section is maintained for content purposed, but has been removed from the menu-->
+		<section id="feature">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">Libraries</h2>
+							<p>The following libraries were used with this project:  lg:  need to determine what to list ?? </p>
+							<p><i class="fa fa-mobile"></i>Leaflet</p>
+							<p><i class="fa fa-mobile"></i>Pandas</p>
+							<p><i class="fa fa-mobile"></i>D3</p>
+						</div>
+						<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+							<img src="images/computerGear.png" class="img-responsive" alt="feature img">
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end feature -->
+	
+			<!-- start feature1 -->
+			<section id="feature1">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<img src="images/nycOpenData.png" class="img-responsive" alt="feature img">
+						</div>
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">Data Source</h2>
+							<p>The dataset is provided by the the New York City Department of Health and Mental Hygiene (DOHMH) .   The data includes restaurant inspections, violations, grades and adjudication information for restaurants within the five boroughs of NYC.  
+									 </p>
+									 <p></p>
+							<p><span><i class="fa fa-mobile"></i></span><a href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j;" target="_blank">Link to Website</a></p>
+							<p><i class="fa fa-code"></i>lg need another bullet ??</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end feature1 -->
+
+		<!-- start about -->
+		<section id="about">
+			<div class="overlayBottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+							<h2 class="text-uppercase">About Us</h2>
+							<p>We are a team from Atlanta, Georgia, who are enrolled in the GA Tech Data Science & Analytics Bootcamp.  Our team project was to build a website which engaged the user to explore the dataset.    Collectively, we have 63 years of experience in data analysis, SQL database management, and product management. </p>
+							<p>Where did our name come from?    As we sat in class and talked about all the foods we love to eat in New York, someone said "pastrami on rye" which then led to us laughing about this project being "data on rye" </p>
+							<address></address>
+								<p><i class="fa fa-map-marker"></i> Atlanta, Georgia, United States</p>
+								<!-- <p><i class="fa fa-phone"></i> 010-010-0110 or 020-020-0220</p>
+								<p><i class="fa fa-envelope-o"></i> info@company.com</p> -->
+							</address>
+						</div>
+						<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+							<img src="images/pastrami.jpg" class="img-responsive" alt="feature img">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end about -->
+
+		
+		<!-- lg ??  moving this sectino to a new page since I think it is too much data for a DIV.   Links only work if I right click and open in a new tab.  Will figure this out.-->
+		<!-- start data
+		<section id="data">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 wow bounceIn">
+							<h2 class="text-uppercase">Our Data</h2>
+						</div>
+						<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+							<div class="data text-uppercase">
+								<div class="data-title">
+									<h4>Basic Plan</h4>
+									<p>$11</p>
+									<small class="text-lowercase">monthly</small>
+								</div>
+								<ul>
+									<li>6 GB Space</li>
+									<li>600 GB Bandwidth</li>
+									<li>60 More Themes</li>
+									<li>Lifetime Support</li>
+								</ul>
+								<button class="btn btn-primary text-uppercase">Sign up</button>
+							</div>
+						</div>
+						<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+							<div class="data active text-uppercase">
+								<div class="data-title">
+									<h4>Business Plan</h4>
+									<p>$22</p>
+									<small class="text-lowercase">monthly</small>
+								</div>
+								<ul>
+									<li>15 GB space</li>
+									<li>1,500 GB Bandwidth</li>
+									<li>150 More Themes</li>
+									<li>Lifetime Support</li>
+								</ul>
+								<button class="btn btn-primary text-uppercase">Sign up</button>
+							</div>
+						</div>
+						<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+							<div class="data text-uppercase">
+								<div class="data-title">
+									<h4>Pro Plan</h4>
+									<p>$33</p>
+									<small class="text-lowercase">monthly</small>
+								</div>
+								<ul>
+									<li>35 GB space</li>
+									<li>3,500 GB bandwidth</li>
+									<li>350 more themes</li>
+									<li>Lifetime Support</li>
+								</ul>
+								<button class="btn btn-primary text-uppercase">Sign Up</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			end data -->
+
+		<!-- start footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<p>Copyright © 2019 Bootcamp Project #2</p>
+				</div>
+			</div>
+		</footer>
+		<!-- end footer -->
+		
+		<!-- jQuery CDN -->
+		<!-- This URL for the jquery script is from the HTML homework.  Using this file and NOT the jquery.js which came with the bootstrap template
+		WHY??    2.1.4 was used with HTML Homework and v1.10.2 was included with bootstrap template -->
+		  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+		<!--This script came with the bootstap template and is v1.10.2-->
+		<!-- <script src="js/jquery.js"></script>  -->
+		<script src="js/jquery.singlePageNav.min.js"></script>
+
+
+		<!--   bootstrap should be loaded AFTER jquery-->
+		<!--https://stackoverflow.com/questions/9529574/bootstrap-dropdown-menu-not-working-->
+
+		
+		<!-- Bootstrap CDN -->
+		<!-- <script src="js/bootstrap.min.js"></script> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<script src="js/wow.min.js"></script>
+		
+		<script src="js/custom.js"></script>
+
+
+
+		<!-- BEGIN Scripts used by the BikeMap-->
+		<!-- D3 lg:bikeMap-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+		<!-- MomentJS lg:bikeMap -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+	  
+		<!-- Leaflet JavaScript lg:bikeMap-->
+		<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+		integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+		crossorigin=""></script>
+	  
+		<!-- Icons lg:bikeMap-->
+		<script src="js/leaflet.extra-markers.min.js"></script>
+	  
+		<!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) lg:bikeMap -->
+		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+	  
+		<!-- API Key lg:bikeMap-->
+		<script type="text/javascript" src="js/config.js"></script>
+			  
+		<!-- Our JavaScript lg:bikeMap-->
+		<!--  logic.js must be AFTER leaflet.  
+			Instantiating logic.js before leaflet.js has been instantiated results in L not existing at runtime for logic.js.
+		Console error will be:   "L is not defined" -->
+		<script type="text/javascript" src="js/logic.js"></script>
+		
+		<!-- END Scripts used by the BikeMap-->
+
+		<!--REFERENCE SECTION-->
+
+		<!--How to show and hide div elements based on dropdown selection in jQuery-->
+		<!--https://www.tutorialrepublic.com/faq/show-hide-divs-based-on-dropdown-selection-in-jquery.php-->
+	  
+	</body>
+</html>
