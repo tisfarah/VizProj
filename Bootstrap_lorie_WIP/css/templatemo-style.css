@@ -49,7 +49,7 @@ img
     {
        width: 100%;
        height: 100%;
-       background: rgba(0, 0, 0, 0.4);
+       /* background: #fff; */
        padding-top: 30px;
        padding-bottom: 30px;
     }  
@@ -191,8 +191,8 @@ fyi - Some documentation indiacates !important will cause other issues. */
 .navbar-default .navbar-toggle:focus { background-color: transparent }
 /* end navigation */
 
-/* start maps */       
-#maps
+/* start mapM */       
+#mapM
     {
     background: url('../images/bubble-bg.jpg') no-repeat;
     background-size: cover;
@@ -200,19 +200,64 @@ fyi - Some documentation indiacates !important will cause other issues. */
     margin-top: 70px;
     text-align: center;
     width: 100%;
-    }L is not defined 
-#maps p
+    }
+#mapM p
     {
         font-weight: 400;
         font-style: italic;
         line-height: 2em;
     }
-#maps img
+#mapM img
     {
         display: inline-block;
         margin-top: 30px;
     }
-/* end maps */
+/* end mapM */
+
+/* start mapH */       
+#mapH
+    {
+    /* background: url('../images/bubble-bg.jpg') no-repeat; */
+    background-size: cover;
+    background: #f8f8f8;
+    /* padding-top: 80px;
+    padding-bottom: 80px; */
+    }
+#mapH p
+    {
+        font-weight: 400;
+        font-style: italic;
+        line-height: 2em;
+    }
+#mapH img
+    {
+        display: inline-block;
+        margin-top: 30px;
+    }
+/* end mapH */
+
+/* start mapG */       
+#mapG
+    {
+    background: url('../images/bubble-bg.jpg') no-repeat;
+    background-size: cover;
+    color: #fff;
+    /* margin-top: 70px; */
+    text-align: center;
+    width: 100%;
+    }
+#mapG p
+    {
+        font-weight: 400;
+        font-style: italic;
+        line-height: 2em;
+    }
+#mapG img
+    {
+        display: inline-block;
+        margin-top: 30px;
+    }
+/* end mapG */
 
 /* start divider */
 #divider
