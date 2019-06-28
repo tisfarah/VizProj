@@ -1,65 +1,77 @@
-import os
-
-import pandas as pd
 import numpy as np
 
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
+import sqlite3
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
+
+
+#################################################
+# Flask Setup
+#################################################
 app = Flask(__name__)
 
-
 #################################################
-# Database Setup
+# Flask Routes
 #################################################
-dbfile = os.path.join('data/NYC_Restarants.db')
-engine = create_engine(f"sqlite:///{dbfile}")
-
-# reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Save references to each table
-NYC_Restaurants = Base.classes.NYC_Restaurants
 
 
-# Create our session (link) from Python to the DB
-session = Session(engine)
+# database_path = "NYC_Health_Ratings.sqlite"
+# engine = create_engine(f'sqlite:///{database_path}')
+
+# ['NYC_Health_Ratings',
+#  'Restaurant_Geo_Info',
+#  'Violations_by_Borough',
+#  'Violations_by_Cuisine',
+#  'Violations_by_Restaurant']
+
 
 
 @app.route("/")
-def index():
-    """Return the homepage."""
-    return render_template('index.html')
+def welcome():
+    """List all available api routes."""
+    return ("Available Routes:/api/v1.0/location<br>\n/api/v1.0/id<br>\n/api/v1.0/user_smart/<input_column>")
+
+@app.route("/api/v1.0/user_smart/<input_column>")
+def mycolumn(input_column):
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+    cur = conn.cursor()
+    cur.execute("SELECT * from Restaurant_Geo_Info")
+    rows = cur.fetchall()
+    column_list = []
+    for row in rows:
+        column_list.append(row[0])
+
+    columndata = dict()
+    columndata["column name"] = input_column
+    columndata["result"] = column_list
+    return jsonify(columndata)
 
 
-@app.route('/names')
-def names():
-    """Return a list of sample names."""
+# @app.route("/api/v1.0/id")
+# def myid():
+#     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
 
-    # Use Pandas to perform the sql query
-    stmt = session.query(NYC_Restaurants).statement
-    df = pd.read_sql_query(stmt, session.bind)
-    # df.set_index('otu_id', inplace=True)
+#     cur = conn.cursor()
+#     cur.execute("SELECT * from Violations_by_Restaurant")
+#     rows = cur.fetchall()
+#     id_list = []
+#     for row in rows:
+#         id_list.append(row[0])
 
-    # Return a list of the column names (sample names)
-    return jsonify(list(df.columns))
-@app.route('/camis')
-def otu():
-    """Return a list of OTU descriptions."""
-    results = session.query(NYC_Restaurants.CAMIS).all()
+#     return jsonify(id_list)
 
-    # Use numpy ravel to extract list of tuples into a list of OTU descriptions
-    CAMIS_list = list(np.ravel(results))
-    return jsonify(CAMIS_list)
+# @app.route("/api/v1.0/location")
+# def location():
+#     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+#     cur = conn.cursor()
+#     cur.execute("SELECT * from Violations_by_Cuisine")
+#     rows = cur.fetchall()
+#     location_list = []
+#     for row in rows:
+#         location_list.append(row[0])
 
+#     return jsonify(location_list)
 
-  
+if __name__ == '__main__':
 
-
-if __name__ == "__main__":
     app.run(debug=True)
