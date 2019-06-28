@@ -47,18 +47,21 @@ def mycolumn(input_column):
     return jsonify(columndata)
 
 
-# @app.route("/api/v1.0/id")
-# def myid():
-#     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+@app.route("/api/v1.0/Locations")
+def mylocations():
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
 
-#     cur = conn.cursor()
-#     cur.execute("SELECT * from Violations_by_Restaurant")
-#     rows = cur.fetchall()
-#     id_list = []
-#     for row in rows:
-#         id_list.append(row[0])
+    cur = conn.cursor()
+    cur.execute("SELECT lat, long from Restaurant_Geo_Info")
+    rows = cur.fetchall()
+    lat_list = []
+    # long_list = []
+    for row in rows:
+        lat_list.append(row[0])
+        # long_list.append(row[1])
 
-#     return jsonify(id_list)
+    return jsonify(lat_list)
+    # return jsonify(long_list)
 
 # @app.route("/api/v1.0/location")
 # def location():
