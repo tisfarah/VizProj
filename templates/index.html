@@ -11,7 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="">
 		<meta name="description" content="">
-
+		
+		<!--  BEGIN links needed for the bike map-->
 		<!-- Google Font lg:bikeMap-->
 		<link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
 
@@ -26,7 +27,7 @@
 
 		<!-- Our CSS lg:bikeMap-->
 		<link rel="stylesheet" type="text/css" href="css/styleBike.css">
-
+		<!--  END links needed for the bike map-->
 
 		<!-- animate css -->
 		<link rel="stylesheet" href="css/animate.min.css">
@@ -117,13 +118,7 @@
 				<div class="container"> <!--may need to add container-fluid for responsive to display the map height-->
 					<div class="row">
 						<div class="col-md-1"></div>
-						<!--  This line has been removed for demo purposes.   Update the id attribute with the value in the js file.-->
-						<!-- <div class="col-md-10 wow fadeIn" id="map-id" style="height:600px;" data-wow-delay="0.3s"> -->
-						<!--The image is added only for demo purposes.    Remove this DIV SECTION when the real map is ready-->
-							<div class="col-md-10 wow fadeInRight" data-wow-delay="0.6s">
-								<!-- <img src="images/exampleHeat.jpg" class="img-responsive" alt="Heat Map Example"> -->
-								<img src="images/exampleHeat.jpg" alt="Heat Map Example">
-							</div>
+						<div class="col-md-10 wow fadeIn" id="h_map" style="height:600px;" data-wow-delay="0.3s"></div>
 						<div class="col-md-1"></div>
 					</div>
 				</div>
@@ -374,18 +369,18 @@
 		<!-- API Key lg:bikeMap-->
 		<script type="text/javascript" src="js/config.js"></script>
 			  
-		<!-- Our JavaScript lg:bikeMap-->
+		<!-- BEGIN Scripts used by bikeMap-->
 		<!--  logic.js must be AFTER leaflet.  
 			Instantiating logic.js before leaflet.js has been instantiated results in L not existing at runtime for logic.js.
 		Console error will be:   "L is not defined" -->
 		<script type="text/javascript" src="js/logic.js"></script>
 		
 		<!-- END Scripts used by the BikeMap-->
-
-		<!--REFERENCE SECTION-->
-
-		<!--How to show and hide div elements based on dropdown selection in jQuery-->
-		<!--https://www.tutorialrepublic.com/faq/show-hide-divs-based-on-dropdown-selection-in-jquery.php-->
+		
+		<!--  BEGIN Scrips used by Heat Map-->
+		<script type="text/javascript" src="js/heatmap.js"></script>
+		<script type="text/javascript" src="js/leaflet-heat.js"></script>
+		<!-- END Scripts used by the Heat Map-->
 	  
 	</body>
 </html>
