@@ -1,2 +1,2 @@
 // API key
-const API_KEY = "pk.eyJ1IjoiYWRyaWFuamFja3Nvbjg2IiwiYSI6ImNqd3Y5dGJhdTA2ajU0OXFzdHR1c3Q3djAifQ.xftKMq6_bCoc0uEizWhr5A";
+const API_KEY = "pk.eyJ1IjoibG9yaWVwZWFjaCIsImEiOiJjand2OXQ4bW8wMHplNDlwY3Jvbmc4bzczIn0.iJU98A0IJAEWzMed3YraKg";

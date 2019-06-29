@@ -1,5 +1,4 @@
 // NYC lat/long = 40.730610, -73.935242
-// SFO lat/long = 37.7749, -122.4194 
 
 var HeatMap = L.map("h_map", {
   center: [40.730610, -73.935242],
@@ -13,8 +12,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(HeatMap);
 
-//var url = "https://data.sfgov.org/resource/cuks-n6tp.json?$limit=10000"; //original SFO line of code
-var url = "http://127.0.0.1:5000/heatData"; //NYC
+var url = "http://127.0.0.1:5000/heatData"; 
 
 d3.json(url, function(response) {
   console.log("-- Next line is the json data")
