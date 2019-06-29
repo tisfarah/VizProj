@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 import sqlite3
 
 from flask import Flask, jsonify
@@ -63,6 +63,18 @@ def mylocations():
     return jsonify(lat_list)
     # return jsonify(long_list)
 
+# Query the database and return the jsonified results for the heat map
+@app.route("/heatData")
+def heatData():
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+    cur = conn.cursor()
+
+    cur.execute("select dba, lat, long from Restaurant_Geo_Info")
+    results = cur.fetchall()
+    df = pd.DataFrame(results, columns=['nameDBA', 'lat', 'long'])
+    return jsonify(df.to_dict(orient="records"))
+
+
 # @app.route("/api/v1.0/location")
 # def location():
 #     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
@@ -77,4 +89,33 @@ def mylocations():
 
 if __name__ == '__main__':
 
-    app.run(debug=True)
+#######################################################
+# queries on the data - sanity checks
+#######################################################
+
+#understand tables in schema
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+    cur = conn.cursor()
+    sqlFortableNames = "SELECT name FROM sqlite_master WHERE type='table'"
+    cur.execute(sqlFortableNames)
+    results = cur.fetchall()
+    print("---Tables in the NYC_Health_Ratings sqlite file")
+    print(results)
+
+ #get the columns in the Restaurant_Geo_Info table
+    sqlForColumnNames = "SELECT sql FROM sqlite_master WHERE name='Restaurant_Geo_Info'"
+    cur.execute(sqlForColumnNames)
+    results = cur.fetchall()
+    print("------------")
+    print("---Columns in Restaurant_Geo_Info") 
+    print(results)
+
+ #get the columns in the Violations_by_Restaurant table
+    sqlForColumnNames = "SELECT sql FROM sqlite_master WHERE name='Violations_by_Restaurant'"
+    cur.execute(sqlForColumnNames)
+    results = cur.fetchall()
+    print("------------")
+    print("---Columns in Violations_by_Restaurant") 
+    print(results)
+
+app.run(debug=True)
