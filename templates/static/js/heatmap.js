@@ -1,8 +1,8 @@
 // NYC lat/long = 40.730610, -73.935242
 
 var HeatMap = L.map("h_map", {
-  center: [40.735670, -73.868934],
-  zoom: 12
+  center: [40.727169, -73.834581],
+  zoom: 11
 });
 
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -42,7 +42,7 @@ d3.json(url, function(response) {
   legend.onAdd = function (map) {
 
   var div = L.DomUtil.create('div', 'heatLegend'),
-      labels = ['Restaurant Citations <br> Last 3 Months'];
+      labels = ['Restaurant Citations <br> Jan 1 - June 30, 2019'];
 
       labels.push
         div.innerHTML = labels;

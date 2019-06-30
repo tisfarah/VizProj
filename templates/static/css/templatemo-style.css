@@ -430,6 +430,12 @@ fyi - Some documentation indiacates !important will cause other issues. */
         margin-top: 20px;
         padding: 10px 40px 10px 40px;
     }
+
+.indentSection
+{
+    margin-left: 580px;
+    /*background: #28a7e9; use to see the location of the div */
+}
 /* end overview */
 
 /* start about */
