@@ -37,4 +37,17 @@ d3.json(url, function(response) {
     blur: 35
   }).addTo(HeatMap);
 
+  //Add a legend
+  var legend = L.control({position: 'topright'});  
+  legend.onAdd = function (map) {
+
+  var div = L.DomUtil.create('div', 'heatLegend'),
+      labels = ['Restaurant Citations <br> Last 3 Months'];
+
+      labels.push
+        div.innerHTML = labels;
+        return div;
+        };
+  legend.addTo(HeatMap);
+
 });
