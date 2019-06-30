@@ -30,6 +30,7 @@ app = Flask(__name__)
 def welcome():
     """List all available api routes."""
     return ("Available Routes:/api/v1.0/location<br>\n/api/v1.0/id<br>\n/api/v1.0/user_smart/<input_column>")
+    # change line 32 to render_template(index.html) when finalizing 
 
 @app.route("/api/v1.0/user_smart/<input_column>")
 def mycolumn(input_column):
@@ -145,7 +146,7 @@ if __name__ == '__main__':
     print("---Columns in Restaurant_Markers")
     print(results)
 
-        #get the columns in the NYC_Health_Ratings table
+    #get the columns in the NYC_Health_Ratings table
     sqlForColumnNames = "SELECT sql FROM sqlite_master WHERE name='NYC_Health_Ratings'"
     cur.execute(sqlForColumnNames)
     results = cur.fetchall()
