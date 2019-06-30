@@ -1,8 +1,8 @@
 // NYC lat/long = 40.730610, -73.935242
 
 var HeatMap = L.map("h_map", {
-  center: [40.730610, -73.935242],
-  zoom: 13
+  center: [40.735670, -73.868934],
+  zoom: 12
 });
 
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
