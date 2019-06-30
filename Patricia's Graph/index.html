@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-</head>
+    <style> /* set the CSS */
 
+    .bar { fill: steelblue; }
+            
+    </style>
+<!--link rel="stylesheet" type="text/css" href="style.css">-->
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
-<body>
-    <script src="js/app.js"></script>
-</body>
-
-
 <!-- Add 2 buttons -->
 <button onclick="update(data1)">Variable 1</button>
 <button onclick="update(data2)">Variable 2</button>
+</head>
 
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
 
+<body>
+    <script src="graphApp.js"></script>
+
+    <!-- Create a div where the graph will take place -->
+    <!--  <div id="my_dataviz"></div> -->
+</body>
 </html>
