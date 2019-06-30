@@ -35,7 +35,7 @@ function createMap(restos) {
   };
 
   // Create the map object with options
-  var mapM = L.map("mapM", {
+  var FarahM = L.map("FarahM", {
     center: [40.735670, -73.868934],
     zoom: 12,
     layers: [lightmap, restos]
@@ -44,7 +44,7 @@ function createMap(restos) {
   // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
-  }).addTo(mapM);
+  }).addTo(FarahM);
 
  } // commenting out to remove the create map function
 
@@ -73,7 +73,7 @@ function createMarkers(response) {
   
       // For each station, create a marker and bind a popup with the station's name
       var restoMarker = L.marker([locations.lat, locations.long])
-        .bindPopup("<h3>" + locations.DBA + "<h3><h3>Rating: " + locations.GRADE + "<h3>");
+        .bindPopup("<h5>" + locations.DBA + "<h5><h6>Rating: " + location.GRADE + "<h6>");
   
       // Add the marker to the bikeMarkers array
       restosMarkers.push(restoMarker);
@@ -84,3 +84,5 @@ function createMarkers(response) {
   };
 
 d3.json("http://127.0.0.1:5000/markerData",createMarkers)
+
+
