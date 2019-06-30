@@ -90,10 +90,21 @@ def markerData():
 def tabularData():
     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
     cur = conn.cursor()
-    cur.execute("select DBA, BORO, [CUISINE DESCRIPTION], [VIOLATION CODE], [VIOLATION DESCRIPTION], [CRITICAL FLAG], GRADE from NYC_Health_Ratings")
+    cur.execute("select DBA, BORO, [CUISINE DESCRIPTION], [VIOLATION CODE], [VIOLATION DESCRIPTION], [CRITICAL FLAG], GRADE from NYC_Health_Ratings limit 10")
     results = cur.fetchall()
     df = pd.DataFrame(results, columns=['DBA', 'BORO', 'CUISINE DESCRIPTION', 'VIOLATION CODE', 'VIOLATION DESCRIPTION', 'CRITICAL FLAG', 'GRADE'])
-    return jsonify(df.to_dict(orient="records"))
+    
+    # Build options argument containing column and data
+    # columns are dataframe headers
+    # data is result rows in list format
+    # options should be a dictionary containing a list of lists
+    options = {
+        "columns": df.columns.values.tolist(),
+        "results": df.values.tolist()
+    }
+    
+    return jsonify(options)
+    # return jsonify(df.to_dict(orient="records"))
 
 # @app.route("/api/v1.0/location")
 # def location():
