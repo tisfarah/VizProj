@@ -74,6 +74,15 @@ def heatData():
     df = pd.DataFrame(results, columns=['nameDBA', 'lat', 'long'])
     return jsonify(df.to_dict(orient="records"))
 
+# Query the database and return the jsonified results for the simple Markers map
+@app.route("/markerData")
+def markerData():
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+    cur = conn.cursor()
+    cur.execute("select * from Restaurant_Markers")
+    results = cur.fetchall()
+    df = pd.DataFrame(results, columns=['DBA', 'BORO', 'CUISINE DESCRIPTION', 'GRADE', 'address_full', 'lat','long', 'Count of Violations'])
+    return jsonify(df.to_dict(orient="records"))
 
 # @app.route("/api/v1.0/location")
 # def location():
@@ -116,6 +125,14 @@ if __name__ == '__main__':
     results = cur.fetchall()
     print("------------")
     print("---Columns in Violations_by_Restaurant") 
+    print(results)
+    
+    #get the columns in the Restaurant_Markers table
+    sqlForColumnNames = "SELECT sql FROM sqlite_master WHERE name='Restaurant_Markers'"
+    cur.execute(sqlForColumnNames)
+    results = cur.fetchall()
+    print("------------")
+    print("---Columns in Restaurant_Markers")
     print(results)
 
 app.run(debug=True)
