@@ -84,6 +84,16 @@ def markerData():
     df = pd.DataFrame(results, columns=['DBA', 'BORO', 'CUISINE DESCRIPTION', 'GRADE', 'address_full', 'lat','long', 'Count of Violations'])
     return jsonify(df.to_dict(orient="records"))
 
+# Query the database and return the jsonified results for the full restaurant list
+@app.route("/tabularData")
+def tabularData():
+    conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
+    cur = conn.cursor()
+    cur.execute("select DBA, BORO, [CUISINE DESCRIPTION], [VIOLATION CODE], [VIOLATION DESCRIPTION], [CRITICAL FLAG], GRADE from NYC_Health_Ratings")
+    results = cur.fetchall()
+    df = pd.DataFrame(results, columns=['DBA', 'BORO', 'CUISINE DESCRIPTION', 'VIOLATION CODE', 'VIOLATION DESCRIPTION', 'CRITICAL FLAG', 'GRADE'])
+    return jsonify(df.to_dict(orient="records"))
+
 # @app.route("/api/v1.0/location")
 # def location():
 #     conn = sqlite3.connect("NYC_Health_Ratings.sqlite")
@@ -133,6 +143,14 @@ if __name__ == '__main__':
     results = cur.fetchall()
     print("------------")
     print("---Columns in Restaurant_Markers")
+    print(results)
+
+        #get the columns in the NYC_Health_Ratings table
+    sqlForColumnNames = "SELECT sql FROM sqlite_master WHERE name='NYC_Health_Ratings'"
+    cur.execute(sqlForColumnNames)
+    results = cur.fetchall()
+    print("------------")
+    print("---Columns in NYC_Health_Ratings")
     print(results)
 
 app.run(debug=True)
