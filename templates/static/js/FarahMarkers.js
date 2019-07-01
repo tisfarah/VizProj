@@ -30,15 +30,41 @@ function createMap(restos) {
   };
 
   // Create an overlayMaps object to hold the Restaurants layer
+var layers = {
+    BRONX: new L.LayerGroup(),
+    MANHATTAN: new L.LayerGroup(),
+    BROOKLYN: new L.LayerGroup(),
+    STATEN_ISLAND: new L.LayerGroup(),
+    QUEENS: new L.LayerGroup(),
+    Missing: new L.LayerGroup()
+    };
+    
   var overlayMaps = {
-    "Restaurants": restos
+    "Restaurants": restos,
+      "Bronx": layers.BRONX,
+      "Manhattan": layers.MANHATTAN,
+      "Brooklyn": layers.BROOKLYN,
+      "Staten Island": layers.STATEN_ISLAND,
+      "Queens": layers.QUEENS,
+      "Missing" : layers.Missing
   };
+    
+
 
   // Create the map object with options
   var FarahM = L.map("FarahM", {
     center: [40.735670, -73.868934],
     zoom: 12,
-    layers: [lightmap, restos]
+//    layers: [lightmap, restos]
+                     layers: [lightmap,
+                              restos,
+                              layers.BRONX,
+                              layers.MANHATTAN,
+                              layers.BROOKLYN,
+                              layers.STATEN_ISLAND,
+                              layers.QUEENS,
+                              layers.Missing
+                              ]
   });
 
   // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
@@ -56,7 +82,8 @@ function createMarkers(response) {
 
 
     var url = "http://127.0.0.1:5000/markerData";
-
+    var markerColors;
+    
     d3.json(url, function(response) {
             console.log("-- Next line is the marker json data");
             console.log(response);
@@ -67,22 +94,20 @@ function createMarkers(response) {
     console.log("-- Next line is the restosMarkers list.   Should be empty");
     console.log(restosMarkers);
   
-    // Loop through the stations array
+    // Loop through the restosMarkers array
     for (var i = 0; i < response.length; i++) {
       var locations = response[i];
   
-      // For each station, create a marker and bind a popup with the station's name
+      // For each restaurant, create a marker and bind a popup
       var restoMarker = L.marker([locations.lat, locations.long])
-        .bindPopup("<h5>" + locations.DBA + "<h5><h6>Rating: " + location.GRADE + "<h6>");
-  
-      // Add the marker to the bikeMarkers array
+        .bindPopup("<h5>" + locations.DBA + "<h5>----------<h6>Rating: " + locations.GRADE + "<h6><h6>Cuisine: " + locations['CUISINE DESCRIPTION'] +"<h6><h6>Borough: "+ locations.BORO + "<h6><h6>Violations: " + locations['Count of Violations']+"<h6><h6>Address: "+locations.address_full+"<h6><h6>Directions: <a href='http://google.com/maps/dir/current+location/'>Copy the Full Address & Click Here!</a>");
+      // Add the marker to the restosMarkers array
       restosMarkers.push(restoMarker);
     };
   
-    // Create a layer group made from the bike markers array, pass it into the createMap function
+    // Create a layer group made from the restosMarkers array, pass it into the createMap function
     createMap(L.layerGroup(restosMarkers));
   };
 
-d3.json("http://127.0.0.1:5000/markerData",createMarkers)
-
+d3.json("http://127.0.0.1:5000/markerData",createMarkers);
 
