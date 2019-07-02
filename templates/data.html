@@ -22,12 +22,21 @@
 		<link rel="stylesheet" href="static/css/font-awesome.min.css">
 		<!-- google font -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+		<!--END styles needed for the Boxer bootstrap template-->
+
+		<!--BEGIN styles needed for leaflet-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+		<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+		<!-- <script src="https://d3js.org/d3.v4.min.js"></script>  -->
+		<!--END styles needed for leaflet-->
+		
+		<!-- Updated D3 version  -->
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+
+		
 
 		<!-- custom css -->
 		<link rel="stylesheet" href="static/css/templatemo-style.css">
-
-		<!-- D3 Library -->
-		<script src="https://d3js.org/d3.v5.min.js"></script>
 
 		<!-- Frappe Ingredients-->
 		<link rel="stylesheet" href="https://unpkg.com/frappe-datatable@0.0.5/dist/frappe-datatable.min.css">
@@ -73,15 +82,15 @@
 						<li class="dropdown" >
 							<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="index.html#mapM">Map1-Markers</a></li>
-								 <li><a href="index.html#mapH">Map2-Heat</a></li>
-								 <li><a href="index.html#mapG">Graph</a></li>
+								<li><a href="#mapM">Map1-Markers</a></li>
+								 <li><a href="#mapH">Map2-Heat</a></li>
+								 <li ><a href="#mapG">Graph</a></li>
 							</ul>
 						</li>
 						<!-- <li><a href="#feature">Features</a></li> -->
 						<!--   Removed features from the menu, but mainted the section within the page-->
-						<li><a href="index.html#overview">Overview</a></li>
-						<li><a href="index.html#about">About</a></li>
+						<li><a href="#overview">Overview</a></li>
+						<li><a href="#about">About</a></li>
 						<li class="navbar-last"><a href="data.html">Data</a></li>
 					</ul>
 				</div>
@@ -127,7 +136,7 @@
 		<script src="static/js/jquery.singlePageNav.min.js"></script>
 
 
-		<!--   bootstrap should be loaded AFTER jquery-->
+		<!--   bootstrap should be loaded AFTER jquery, else there is an error-->
 		<!--https://stackoverflow.com/questions/9529574/bootstrap-dropdown-menu-not-working-->
 
 		
@@ -140,10 +149,6 @@
 		<script src="static/js/custom.js"></script>
 
 
-
-		<!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) lg:bikeMap -->
-		<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-		
 		<!--  BEGIN Scripts used by Frappe-->
 		<script type="text/javascript" src="static/js/frappetable.js"></script>
 		<!-- END Scripts used by Frappe-->
