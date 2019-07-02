@@ -114,22 +114,6 @@ var icons = {
 };
 
 
-d3.csv("./Map_Marker_File.csv", function(error, MarkerData) {
-    if (error) return console.warn(error);
-  
-    console.log(MarkerData);
-  
-    // log a list of names
-    var names = MarkerData.map(data => data.name);
-    console.log("names", names);
-  
-    // Cast each hours value in tvData as a number using the unary + operator
-    tvData.forEach(function(data) {
-      data.hours = +data.hours;
-      console.log("Name:", data.name);
-      console.log("Hours:", data.hours);
-    });
-  });
 
 
 // // Loop through the cities array and create one marker for each city, bind a popup containing its name and population add it to the map
